@@ -1,0 +1,195 @@
+/* Taxi Booking Widget – Professional Styles */
+:root {
+  --color-bg: #0f2345;
+  --color-bg-2: #122a55;
+  --color-surface: #ffffff;
+  --color-surface-2: #f7f8fb;
+  --color-primary: #ffc640; /* inspired by the yellow CTA */
+  --color-primary-ink: #1a1f2c;
+  --color-accent: #1aa7a1; /* teal for sections */
+  --color-border: #e5e8f0;
+  --color-text: #1b2a4a;
+  --color-text-weak: #5b6b8a;
+  --radius-lg: 14px;
+  --radius-md: 10px;
+  --radius-sm: 8px;
+  --shadow-lg: 0 12px 32px rgba(16, 33, 77, 0.12);
+  --shadow-md: 0 6px 18px rgba(16, 33, 77, 0.12);
+}
+
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+  color: var(--color-text);
+  background: linear-gradient(180deg, var(--color-bg) 0%, var(--color-bg-2) 100%);
+}
+
+.page-wrapper {
+  max-width: 1100px;
+  margin: 40px auto;
+  padding: 0 20px 80px;
+}
+
+.demo-title {
+  color: #fff;
+  text-align: center;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+}
+
+.demo-footer { color: #cfe1ff; text-align: center; }
+.demo-footer code { color: #fff; }
+
+/* Widget Shell */
+.taxi-widget {
+  background: var(--color-surface);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  overflow: hidden;
+}
+
+.taxi-widget .tw-header {
+  background: var(--color-bg);
+  color: #fff;
+  padding: 18px 22px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.tw-badge {
+  width: 30px; height: 30px; border-radius: 50%;
+  display: grid; place-items: center;
+  background: var(--color-primary);
+  color: var(--color-primary-ink);
+  font-weight: 800;
+}
+
+.tw-tabs {
+  display: flex;
+  gap: 18px;
+  padding: 12px 18px;
+  background: var(--color-bg);
+  border-top: 1px solid rgba(255,255,255,0.08);
+}
+
+.tw-tab {
+  color: #cfe1ff;
+  display: inline-flex; align-items: center; gap: 10px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.tw-tab input { accent-color: var(--color-primary); }
+
+.tw-form {
+  padding: 18px;
+  background: var(--color-bg);
+  display: grid;
+  grid-template-columns: 1.2fr 1.2fr 0.9fr 0.9fr 0.8fr 0.8fr;
+  gap: 10px;
+}
+
+@media (max-width: 960px) {
+  .tw-form { grid-template-columns: 1fr 1fr; }
+}
+
+.tw-input, .tw-select, .tw-date {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #172a55;
+  color: #eaf1ff;
+  border: 1px solid rgba(255,255,255,0.08);
+  padding: 12px 14px;
+  border-radius: var(--radius-sm);
+}
+
+.tw-input input, .tw-select select, .tw-date input, .tw-number input {
+  width: 100%;
+  background: transparent;
+  border: 0; outline: 0; color: #fff;
+  font-size: 14px;
+}
+
+.tw-number {
+  display: flex; align-items: center; gap: 8px;
+  padding: 12px 14px; border-radius: var(--radius-sm);
+  background: #172a55; border: 1px solid rgba(255,255,255,0.08);
+  color: #eaf1ff;
+}
+
+.tw-cta {
+  display: inline-flex; align-items: center; justify-content: center;
+  background: var(--color-primary);
+  color: var(--color-primary-ink);
+  border: 0; border-radius: 12px; font-weight: 800;
+  padding: 12px 16px; cursor: pointer; min-width: 180px;
+}
+
+/* Stepper */
+.tw-steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; padding: 18px; background: var(--color-surface); }
+.tw-step {
+  background: var(--color-surface-2);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 12px 14px; display: flex; align-items: center; gap: 10px; font-weight: 700; color: var(--color-text-weak);
+}
+.tw-step.active { border-color: var(--color-primary); color: var(--color-text); }
+
+/* Results list */
+.tw-results { padding: 12px 18px; display: grid; gap: 16px; }
+.tw-card {
+  display: grid; grid-template-columns: 1fr 1.6fr 180px; gap: 18px;
+  background: #fff; border: 1px solid var(--color-border); border-radius: var(--radius-md); box-shadow: var(--shadow-md);
+}
+@media (max-width: 960px) { .tw-card { grid-template-columns: 1fr; } }
+
+.tw-card .media { padding: 14px; display: grid; place-items: center; }
+.tw-card .media img { width: 100%; max-width: 340px; height: auto; border-radius: 8px; object-fit: cover; }
+
+.tw-card .content { padding: 18px; border-left: 1px dashed #dde3f1; }
+.tw-card .content h3 { margin: 0 0 10px; }
+.tw-chip-row { display: flex; flex-wrap: wrap; gap: 10px; }
+.tw-chip { background: var(--color-surface-2); border-radius: 999px; padding: 8px 12px; border: 1px solid var(--color-border); font-size: 12px; color: var(--color-text-weak); }
+
+.tw-card .side { padding: 18px; border-left: 1px dashed #dde3f1; display: grid; gap: 10px; align-content: center; justify-items: center; }
+.tw-price { font-size: 28px; font-weight: 800; color: var(--color-text); }
+
+/* Details / Extras */
+.tw-panel { margin: 18px; border-radius: var(--radius-md); overflow: hidden; border: 1px solid var(--color-border); }
+.tw-panel .tw-panel-head { background: var(--color-accent); color: #fff; font-weight: 800; padding: 12px 16px; }
+.tw-panel .tw-panel-body { background: #fff; }
+
+.tw-table { width: 100%; border-collapse: collapse; }
+.tw-table th, .tw-table td { padding: 12px 14px; border-bottom: 1px solid var(--color-border); text-align: left; }
+.tw-table thead th { background: #64c8c1; color: #fff; border-bottom: 0; }
+
+.tw-flex { display: flex; align-items: center; gap: 10px; }
+.tw-qty { width: 90px; }
+
+/* Sidebar */
+.tw-sidebar { padding: 18px; }
+.tw-summary { background: var(--color-bg); color: #fff; border-radius: var(--radius-md); overflow: hidden; box-shadow: var(--shadow-md); }
+.tw-summary h4 { margin: 0; padding: 16px; background: #0c1e3f; }
+.tw-summary .tw-summary-body { padding: 16px; display: grid; gap: 8px; }
+.tw-summary .line { display: flex; justify-content: space-between; color: #d2defa; }
+.tw-summary .highlight { color: var(--color-primary); font-weight: 800; }
+
+/* Personal Info */
+.tw-grid { display: grid; gap: 12px; grid-template-columns: repeat(2, 1fr); }
+@media (max-width: 800px) { .tw-grid { grid-template-columns: 1fr; } }
+.tw-field { display: grid; gap: 6px; }
+.tw-field label { font-weight: 700; color: var(--color-text-weak); }
+.tw-field input, .tw-field select, .tw-field textarea { padding: 12px 12px; border-radius: 8px; border: 1px solid var(--color-border); font-size: 14px; }
+
+.tw-actions { display: flex; gap: 12px; justify-content: flex-end; padding: 18px; }
+
+/* Utilities */
+.hidden { display: none !important; }
+.row { display: grid; grid-template-columns: 2.2fr 1fr; }
+@media (max-width: 1100px) { .row { grid-template-columns: 1fr; } }

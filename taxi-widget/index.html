@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Taxi Booking Widget – Demo</title>
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <div class="page-wrapper">
+    <h1 class="demo-title">Taxi Booking Widget – Demo</h1>
+
+    <div id="taxi-booking-widget"></div>
+
+    <footer class="demo-footer">
+      <p>
+        This is a self‑contained demo of a professional, bookable taxi widget. You can embed it on any page by
+        including the CSS and JS, then calling <code>TaxiBookingWidget.init()</code> with your container.
+      </p>
+    </footer>
+  </div>
+
+  <script src="./script.js"></script>
+  <script>
+    // Demo configuration
+    TaxiBookingWidget.init('#taxi-booking-widget', {
+      currency: '$',
+      perKmRate: 0.53,
+      distanceFallbackKm: 20,
+      distanceMatrixKm: {
+        // Optional hard-coded distances for a realistic demo
+        'Abeid Amani Karume International Airport, Zanzibar|Nungwi, Tanzania': 63.088,
+      },
+      carOptions: [
+        {
+          id: 'zanzibar-taxi',
+          name: 'ZANZIBAR TAXI',
+          image: null,
+          features: [
+            { label: 'Passenger X 4' },
+            { label: 'Luggage X 5' },
+            { label: 'Manual' },
+            { label: 'Air Conditioner' },
+            { label: 'Door 5' },
+            { label: 'Sterio: Yes' }
+          ],
+          priceMultiplier: 1
+        },
+        {
+          id: 'zanzibar-transfers',
+          name: 'ZANZIBAR TRANSFERS',
+          image: null,
+          features: [
+            { label: 'Passenger X 6' },
+            { label: 'Luggage X 6' },
+            { label: 'Automatic' },
+            { label: 'Air Conditioner' },
+            { label: 'Door 3' },
+            { label: 'Sterio: Yes' }
+          ],
+          priceMultiplier: 1.2
+        }
+      ],
+      freeExtras: [
+        { id: 'booster-seat', label: 'Baby or Booster Seat', rate: 0 }
+      ],
+      paidExtras: [
+        { id: 'extra-baby-seat', label: 'Extra Baby seat', rate: 2.5 },
+        { id: 'extra-booster-seat', label: 'Extra Booster seat', rate: 2.5 }
+      ],
+      onSubmit: (payload) => {
+        // For the demo, simply log and show an alert.
+        console.log('Booking payload', payload);
+        alert('Booking submitted! Check the console for full payload.');
+      }
+    });
+  </script>
+</body>
+</html>
